@@ -9,32 +9,59 @@
 	$.t_separator = function (price) {
 		var newPriceVal = parseInt(price, 10),
 	    newPriceValStr,
-	    div,
-	    divLength,
-	    processedVal;
+	    newPriceValStrLen,
+	    divArr,
+	    leftSide,
+	    rightSide,
+	    rightSideLen,
+	    pointer,
+	    i,
+	    j;
 
 	    if (isNaN(newPriceVal)) {
-	        return 'Not a number';
+	        return 'Not a number }:';
 	    }
+
 
 	    newPriceValStr = newPriceVal.toString();
-	    div = parseInt(newPriceVal / 1000, 10).toString();
-	    divLength = div.length;
-	    processedVal;
 
+	    newPriceValStrLen = newPriceValStr.length;
 
-	    if (div.length < 4) {
-	        processedVal = newPriceValStr.slice(0, divLength) + ' ' + newPriceValStr.slice(divLength);
-	    } else if (div.length === 4) {
-	        processedVal = newPriceValStr.slice(0, 1) + ' ' + newPriceValStr.slice(1, divLength) + ' ' + newPriceValStr.slice(divLength);
-	    } else if (div.length === 5) {
-	        processedVal = newPriceValStr.slice(0, 2) + ' ' + newPriceValStr.slice(2, divLength) + ' ' + newPriceValStr.slice(divLength);
-	    } else if (div.length === 6) {
-	        processedVal = newPriceValStr.slice(0, 3) + ' ' + newPriceValStr.slice(3, divLength) + ' ' + newPriceValStr.slice(divLength);
+	    if (newPriceValStrLen > 3) {
+
+	    	for (i = 0; i < newPriceValStrLen; i += 1) {
+	    		if (newPriceValStr.slice(i).length % 3 === 0) {
+	    			if (i === 0) {
+	    				leftSide = 3;
+	    			} else {
+	    				leftSide = i;
+	    			}
+
+	    			pointer = leftSide;
+
+	    			divArr = [newPriceValStr.slice(0, leftSide)];
+	    			
+	    			rightSide = newPriceValStr.slice(leftSide);
+	    			rightSideLen = rightSide.length;
+	    			break;
+	    		}
+	    	}
+
+	    	console.log(divArr);
+
+	    	for (j = 0; j < rightSideLen; j += 1) {
+	    		divArr.push(newPriceValStr.slice(pointer, pointer + 3));
+	    		pointer += 3;
+	    	}
+	    	processedVal = divArr.join(' ');
+
 	    } else {
-	        processedVal = '999 999 999';
+
+	    	processedVal = newPriceValStr;
 	    }
+
 	    
+
 	    return processedVal;
 	};
 } (jQuery));

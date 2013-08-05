@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Thousand Separator demo!</title>
+		<link rel="stylesheet" href="css/normalize.css">
+		<link rel="stylesheet" href="css/style.css">
+		<script src="js/jquery-2.0.3.min.js"></script>
+		<script src="js/t_separator.js"></script>
+		<script>
+			$(function () {
+				var form = {
+					root: $('.main_form'),
+					inputTxt: $('.main_form__item.txt_input'),
+					submitBtn: $('.main_form__submit'),
+
+					events: function () {
+						var self = this;
+
+						self.submitBtn.on('click', function (e) {
+							var inputTxtVal = self.inputTxt.val(),
+							processedVal = $.t_separator(inputTxtVal);
+
+							e.preventDefault();
+							self.inputTxt.val(processedVal);
+						});
+					},
+
+					init: function () {
+						var self = this;
+
+						self.events();
+					}
+				};
+
+
+				form.init();
+			});
+		</script>
+	</head>
+	<body>
+		<section class="container">
+			<header class="main">
+				<h1><span class="brace">:{</span> This is Thousand Separator plugin demo! <span class="brace">}:</span></h1>
+			</header>
+			<section class="main_content">
+				<form action="" class="main_form">
+					<input type="text" placeholder="Type some big number here, e.g.: 1000, 10000, etc." class="main_form__item txt_input">
+					<button type="submit" class="main_form__submit">Process</button>
+					<div class="clear"></div>
+				</form>
+			</section>
+			<section class="side_content">
+				
+			</section>
+			<footer></footer>
+		</section>
+		
+	</body>
+</html>
