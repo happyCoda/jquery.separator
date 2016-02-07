@@ -25,6 +25,7 @@ $.separator(bignum) // => will return a string 10 000
 ```
 
 ## Release History
+* 2016-02-07   v0.3.1   A bit of refactor.
 * 2016-02-07   v0.3.0   New separation algorithm. Tests added. Docs added. Bower integration.
 * 2013-08-05   v0.2.0   Separation algorithm rewritten.
 * 2013-08-05   v0.1.0   First release. Demo.

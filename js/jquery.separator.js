@@ -12,9 +12,10 @@
 	    newPriceValStrLen,
 			processedVal;
 
-			function separator(num) {
+			function separate(num) {
 			  var numStr = num.toString(),
 			      len = numStr.length,
+						rightLen,
 			      i = 0,
 						j = 0,
 			      left,
@@ -24,12 +25,14 @@
 			  for (; i < len; i += 1) {
 			    right = numStr.slice(i);
 
-			    if (i > 0 && right.length % 3 === 0) {
+					rightLen = right.length;
+
+			    if (i > 0 && rightLen % 3 === 0) {
 			      left = numStr.slice(0, i);
 
 			      numArr.push(left);
 
-			      for (; j < right.length; j += 3) {
+			      for (; j < rightLen; j += 3) {
 			        numArr.push(right.slice(j, j + 3));
 			      }
 
@@ -52,7 +55,7 @@
 
 	    if (newPriceValStrLen > 3) {
 
-				processedVal = separator(newPriceVal).join(' ');
+				processedVal = separate(newPriceVal).join(' ');
 
 	    } else {
 
