@@ -1,5 +1,5 @@
 # jQuery.separator
-> jQuery plugin for separating parts in large numbers
+> jQuery plugin for separating parts in string representation of large numbers
 
 ## Installation
 Library can be installed via [Bower](http://bower.io/) package manager:
