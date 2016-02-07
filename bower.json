@@ -1,0 +1,16 @@
+{
+  "name": "jquery.separator",
+  "homepage": "https://github.com/happyCoda/jquery.separator",
+  "authors": [
+    "happyCoda <ypworkspace@gmail.com>"
+  ],
+  "description": "jQuery plugin for separating parts in string representation of large numbers",
+  "main": "js/jquery.separator.js",
+  "moduleType": [],
+  "keywords": [
+    "number",
+    "jquery",
+    "plugin"
+  ],
+  "license": "MIT"
+}
